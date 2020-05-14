@@ -1,24 +1,40 @@
-# README
+I implemented API with Rails because I know it better than Node, so it was faster to implement API in Ruby
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For simplicity I hardcoded Devise JWT key and used `<center>` tag. I don't do this in real projects.
 
-Things you may want to cover:
+# How to run project with Docker
 
-* Ruby version
+## Setup
+```
+docker-compose build
+docker-compose run web rake db:create db:migrate db:seed
+```
 
-* System dependencies
+## Start
+```
+docker-compose up
+```
 
-* Configuration
+## Testing
+```
+docker-compose run -e "RAILS_ENV=test" web rake db:create db:migrate
+docker-compose run -e "RAILS_ENV=test" web rspec
+```
 
-* Database creation
+# How to run project without Docker
+Install RVM (https://rvm.io/)
+```
+rvm install ruby-2.7.1
+vim config/database.yml # Edit DB credentials
+bundle install
+rake db:migrate
+./bin/webpack-dev-server 
+rails server
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# What was not done (I know how to implement it, but didn't have enough time)
+* Prop validation
+* react-router
+* Bulk deletion
+* Contact detailed page
+* Advanced theming
