@@ -1,0 +1,58 @@
+Metrics/LineLength:
+  Max: 120
+Style/Documentation:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Disable linting of standard files
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+    - node_modules/**/*
+    - spec/cypress/**/*
+    - config/initializers/money.rb
+Style/StringLiterals:
+  Exclude:
+    - config/spring.rb
+    - config/application.rb
+    - config/puma.rb
+    - config/environments/production.rb
+    - config/initializers/active_admin.rb
+    - app/admin/dashboard.rb
+    - spec/rails_helper.rb
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - config/environments/production.rb
+Layout/EmptyLines:
+  Exclude:
+    - Gemfile
+Lint/UnusedBlockArgument:
+  Exclude:
+    - Gemfile
+Style/SymbolArray:
+  Exclude:
+    - Gemfile
+    - config/initializers/active_admin.rb
+Style/CommentedKeyword:
+  Exclude:
+    - app/admin/dashboard.rb
+Style/BlockComments:
+  Exclude:
+    - spec/spec_helper.rb
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Lint/AmbiguousOperator:
+  Exclude:
+    - app/admin/*
+Style/SymbolArray:
+  Exclude:
+    - ./**/*
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/controllers/api/*
