@@ -7,7 +7,6 @@ Bundler/OrderedGems:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-# Disable linting of standard files
 AllCops:
   Exclude:
     - bin/**/*
@@ -15,6 +14,9 @@ AllCops:
     - node_modules/**/*
     - spec/cypress/**/*
     - config/initializers/money.rb
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
 Style/StringLiterals:
   Exclude:
     - config/spring.rb
@@ -24,12 +26,20 @@ Style/StringLiterals:
     - config/initializers/active_admin.rb
     - app/admin/dashboard.rb
     - spec/rails_helper.rb
+    - db/migrate/*
+Style/HashSyntax:
+  Exclude:
+    - db/migrate/*
 Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
     - config/environments/production.rb
 Layout/EmptyLines:
   Exclude:
     - Gemfile
+    - db/migrate/*
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - db/migrate/*
 Lint/UnusedBlockArgument:
   Exclude:
     - Gemfile
@@ -45,8 +55,8 @@ Style/BlockComments:
     - spec/spec_helper.rb
 Metrics/BlockLength:
   Exclude:
+    - app/admin/*
     - spec/**/*
-
 Lint/AmbiguousOperator:
   Exclude:
     - app/admin/*

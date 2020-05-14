@@ -252,6 +252,7 @@ Devise.setup do |config|
   #
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html]
+  config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -296,4 +297,17 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  config.jwt do |jwt|
+    # Hardcoding token for simplicity. It should not be hardcoded in the real app
+    # jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.secret = 'de400b147ba7b6e9a0786bc4db7b857cb0e9457154f2982213f7fc9aa2d771ee0d31c193959660642d923729c14083e1a2606a6d3992da269a329a3209ec8346'
+    jwt.dispatch_requests = [
+      ['POST', %r{^/api/users/sign_in$}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/api/users/sign_out$}]
+    ]
+    jwt.expiration_time = 50.minutes.to_i
+  end
 end
