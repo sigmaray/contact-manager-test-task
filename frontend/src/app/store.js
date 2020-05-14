@@ -1,8 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import contactsReducer from "../features/contacts/contactsSlice";
+import themeReducer from "../features/theme/themeSlice";
+import userReducer from "../features/user/userSlice";
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
-  },
+    contacts: contactsReducer,
+    theme: themeReducer,
+    user: userReducer
+  }
 });
