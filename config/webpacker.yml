@@ -1,8 +1,12 @@
 # Note: You must restart bin/webpack-dev-server for changes to take effect
 
 default: &default
-  source_path: app/javascript
-  source_entry_path: packs
+  # source_path: app/javascript
+  # source_entry_path: packs
+  # Fix "Module parse failed: Unexpected token" error
+  source_path: .
+  source_entry_path: app/javascript/packs
+
   public_root_path: public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
@@ -33,6 +37,7 @@ default: &default
     - .woff2
 
   extensions:
+    - .jsx
     - .mjs
     - .js
     - .sass
